@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -32,6 +33,22 @@ namespace Integritas.Controllers
             var product = _db.Products.Find(id);
 
             return Request.CreateResponse(HttpStatusCode.OK, product);
+        }
+
+        /* Método responsável por Atualizar o Produto */
+        [HttpPut]
+        [Route("updateProduct")]
+        public HttpResponseMessage UpdateProduct(Product product)
+        {
+            /* Caso não encontre o Produto, retornar um erro 400 */
+            if (product == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            //* Caso encontre, retornar o produto */
+            _db.Entry(product).State = EntityState.Modified;
+            _db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         /* Aqui estarei desconectando a conexão com a base de dados */
