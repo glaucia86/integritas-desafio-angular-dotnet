@@ -67,6 +67,23 @@ namespace Integritas.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        /* Método responsável por deletar o Produto pelo id */
+        [HttpDelete]
+        [Route("deleteProduct")]
+        public HttpResponseMessage DeleteProduct(int id)
+        {
+            /* Caso não encontre o Produto, retornar um erro 400 */
+            if (id <= 0)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            //* Caso encontre, remover o produto */
+            var product = _db.Products.Find(id);
+            _db.Products.Remove(product);
+            _db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
         /* Aqui estarei desconectando a conexão com a base de dados */
         protected override void Dispose(bool disposing)
         {
