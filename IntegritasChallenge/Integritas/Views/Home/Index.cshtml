@@ -28,6 +28,50 @@
                 </td>
             </tr>
         </table>
-    </div>   
+    </div>
+    <span ng-click="createProductByDiv()" class="btn btn-default">Adicionar Produto</span>
+    
+    <div ng-show="divProduct">
+        <p class="divHead"></p>
+        <table class="table">
+            <tr>
+                <td><b><i>{{Action}}Produto</i></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td><b>Id do Produto</b></td>
+                <td>
+                    <input type="text" disabled="disabled" ng-model="productId" class="form-control"/>
+                </td>
+                <td><b>Nome</b></td>
+                <td>
+                    <input type="text" ng-model="ProductName" class="form-control"/>
+                </td>
+                <td><b>Tipo do Produto</b></td>
+                <td>
+                    <input type="text" ng-model="ProductType" class="form-control"/>
+                </td>
+                <td><b>Quantidade</b></td>
+                <td>
+                    <input type="text" ng-model="Quantity" class="form-control"/>
+                </td>
+                <td><b>Preço</b></td>
+                <td>
+                    <input type="text" ng-model="Price" class="form-control"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" class="btn btn-default" value="Salvar Produto" ng-click="createUpdateProduct()" />
+                    <input type="button" class="btn btn-danger" value="Cancelar" ng-click="cancel()" />    
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
