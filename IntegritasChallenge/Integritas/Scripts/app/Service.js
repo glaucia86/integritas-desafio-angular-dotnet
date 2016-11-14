@@ -8,8 +8,17 @@
 
 app.service("integritasService", function($http) {
 
+    /**
+     * Aqui estamos retornando todos os produtos cadastrados na Base de dados
+     */
     this.GetAllProducts = function() {
         return $http.get("/api/v1/public/products");
     }
    
+    /*
+     * Retornando um determinado Produto pelo Id
+     */
+    this.GetById = function(id) {
+        return $http.get("/api/v1/public/product" + id);
+    }
 });
