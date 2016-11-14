@@ -44,6 +44,22 @@ namespace Integritas.Controllers
             if (product == null)
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
+            //* Caso não dê erro, criar o Produto na Base de Dados */
+            _db.Products.Add(product);
+            _db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        /* Método responsável por Criar um novo produto */
+        [HttpPost]
+        [Route("postProduct")]
+        public HttpResponseMessage CreateProduct(Product product)
+        {
+            /* Caso não encontre o Produto, retornar um erro 400 */
+            if (product == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
             //* Caso encontre, retornar o produto */
             _db.Entry(product).State = EntityState.Modified;
             _db.SaveChanges();
