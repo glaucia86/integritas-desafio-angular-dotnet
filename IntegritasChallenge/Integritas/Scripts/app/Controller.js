@@ -1,3 +1,3 @@
-﻿app.controller("integritasCtrl", function($scope, integritasService) {
+﻿app.controller("integritasCtrl", function ($scope, integritasService) {
 
 });

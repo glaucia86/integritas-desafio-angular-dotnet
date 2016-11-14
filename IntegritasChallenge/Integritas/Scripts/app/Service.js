@@ -1,3 +1,3 @@
-﻿app.service("integritasService", function($http) {
+﻿app.service("integritasService", function ($rootScope, $http) {
 
 });
