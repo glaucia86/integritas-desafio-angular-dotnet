@@ -8,7 +8,7 @@
 
 app.controller("integritasCtrl", function($scope, integritasService) {
 
-    $scope.divProduct = false;
+    $scope.divProduct = true;
 
     getAllProducts();
 
