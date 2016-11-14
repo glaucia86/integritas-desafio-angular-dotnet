@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="integritasApp">
+<html lang="pt-br" ng-app="integritasApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +22,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -39,6 +37,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angularJs")
+    @Scripts.Render("~/bundles/toastr")
     @Scripts.Render("~/bundles/customJs")
     @RenderSection("scripts", required: false)
 </body>

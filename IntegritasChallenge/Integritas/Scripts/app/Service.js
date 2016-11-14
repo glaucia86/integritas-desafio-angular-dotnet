@@ -6,7 +6,7 @@
  *  no lado do server-side através do Angular.Js
  */
 
-app.service("integritasService", function ($rootScope, $http) {
+app.service("integritasService", function ($http) {
 
     /*
      * Chamada via AJAX através do Angular.Js do método: GetAllProducts

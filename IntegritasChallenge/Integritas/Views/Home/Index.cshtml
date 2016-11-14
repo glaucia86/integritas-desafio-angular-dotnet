@@ -8,14 +8,20 @@
         </p>
         <table class="table table-hover">
             <tr>
-                <td><b>Id do Produto</b></td>
-                <td><b>Nome do Produto</b></td>
-                <td><b>Tipo do Produto</b></td>
+                <td><b>Id Produto</b></td>
+                <td><b>Nome Produto</b></td>
+                <td><b>Tipo Produto</b></td>
                 <td><b>Quantidade</b></td>
-                <td><b>Preço</b></td>
+                <td><b>Preco</b></td>
             </tr>
 
-
+            <tr ng-repeat="product in products">
+                <td>{{product.IdProduto}}</td>
+                <td>{{product.NomeProduto}}</td>
+                <td>{{product.TipoProduto}}</td>
+                <td>{{product.Quantidade}}</td>
+                <td>{{product.Preco}}</td>
+            </tr>
         </table>
     </div>   
 </div>
