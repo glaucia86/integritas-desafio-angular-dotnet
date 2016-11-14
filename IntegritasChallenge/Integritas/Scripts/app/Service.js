@@ -9,26 +9,40 @@
 app.service("integritasService", function($http) {
 
     /**
-     * Aqui estamos retornando todos os produtos cadastrados na Base de dados
+     * Retornando a Api GetAllProducts
      */
     this.GetAllProducts = function() {
         return $http.get("/api/v1/public/products");
     }
    
     /*
-     * Retornando um determinado Produto pelo Id
+     * Retornando a Api GetById
      */
     this.GetById = function(id) {
         return $http.get("/api/v1/public/product" + id);
     }
 
     /*
-     * Retornando a atualização do Produto
+     * Retornando a Api UpdateProduct
      */
     this.UpdateProduct = function(product) {
         var response = $http({
             method: "put",
             url: "/api/v1/public/updateProduct",
+            data: JSON.stringify(product),
+            dataType: "json"
+        });
+
+        return response;
+    }
+
+    /*
+     * Retornando a Api CreateProduct
+     */
+    this.CreateProduct = function (product) {
+        var response = $http({
+            method: "post",
+            url: "/api/v1/public/postProduct",
             data: JSON.stringify(product),
             dataType: "json"
         });
