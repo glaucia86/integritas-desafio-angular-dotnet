@@ -3,24 +3,24 @@
 }
 
 <div ng-controller="integritasCtrl">
-    <div class="divList">
+    <div class="divProduct">
         <p><b><i>Lista de todos os Produtos Cadastrados</i></b>
         </p>
         <table class="table table-hover">
             <tr>
-                <td><b>Id Produto</b></td>
-                <td><b>Nome Produto</b></td>
-                <td><b>Tipo Produto</b></td>
+                <td><b>Id</b></td>
+                <td><b>Nome</b></td>
+                <td><b>Tipo</b></td>
                 <td><b>Quantidade</b></td>
-                <td><b>Preco</b></td>
+                <td><b>Preço</b></td>
             </tr>
 
             <tr ng-repeat="product in products">
-                <td>{{product.IdProduto}}</td>
-                <td>{{product.NomeProduto}}</td>
-                <td>{{product.TipoProduto}}</td>
-                <td>{{product.Quantidade}}</td>
-                <td>{{product.Preco}}</td>
+                <td>{{product.Id}}</td>
+                <td>{{product.ProductName}}</td>
+                <td>{{product.ProductType}}</td>
+                <td>{{product.Quantity}}</td>
+                <td>{{product.Price}}</td>
             </tr>
         </table>
     </div>   

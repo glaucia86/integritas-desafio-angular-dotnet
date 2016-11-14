@@ -6,12 +6,10 @@
  *  no lado do server-side através do Angular.Js
  */
 
-app.service("integritasService", function ($http) {
+app.service("integritasService", function($http) {
 
-    /*
-     * Chamada via AJAX através do Angular.Js do método: GetAllProducts
-     */
     this.GetAllProducts = function() {
         return $http.get("/api/v1/public/products");
     }
+   
 });

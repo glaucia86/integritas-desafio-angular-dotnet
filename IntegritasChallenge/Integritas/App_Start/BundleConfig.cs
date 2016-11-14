@@ -31,7 +31,7 @@ namespace Integritas
             bundles.Add(new ScriptBundle("~/bundles/customJs").Include(
                     "~/Scripts/app/Module.js",
                     "~/Scripts/app/Service.js",
-                    "~/Scripts/Controller.js"));
+                    "~/Scripts/app/Controller.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

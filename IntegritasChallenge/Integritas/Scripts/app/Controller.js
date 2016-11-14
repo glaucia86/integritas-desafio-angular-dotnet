@@ -1,5 +1,5 @@
 ﻿/**
- * Arquivo: SController.js
+ * Arquivo: Controller.js
  * Author: Glaucia Lemos
  * Data: 11/14/2016
  * Description: Arquivo responsável por retornar os controles dos dados vindos do lado Serviço e
@@ -12,21 +12,20 @@ app.controller("integritasCtrl", function($scope, integritasService) {
 
     getAllProducts();
 
-    /*
-     * Função responsável por retornar os dados dos Produtos
-     *  vindos do arquivo: Service.js
+    /**
+     * Função responsável por retornar os dados do Banco para o lado dos server-side 
+     * pelo Angular.Js
      */
     function getAllProducts() {
 
-        //debugger;
+        debugger;
 
         var productsData = integritasService.GetAllProducts();
 
-        productsData.then(function (product) {
-
+        productsData.then(function(product) {
             $scope.products = product.data;
         }, function() {
-            toastr["error"]("Erro ao retornar todos os Produtos", "Integritas System");
+            toastr["error"]("Erro ao retornar todos os Produtos.", "Integritas System");
         });
     }
 });
