@@ -39,12 +39,24 @@ app.service("integritasService", function($http) {
     /*
      * Retornando a Api CreateProduct
      */
-    this.CreateProduct = function (product) {
+    this.CreateProduct = function(product) {
         var response = $http({
             method: "post",
             url: "/api/v1/public/postProduct",
             data: JSON.stringify(product),
             dataType: "json"
+        });
+
+        return response;
+    }
+
+    /*
+     * Retornando a Api DeleteProduct
+     */
+    this.DeleteProduct = function(id) {
+        var response = $http({
+            method: "delete",
+            url: "/api/v1/public/deleteProduct" + JSON.stringify(id)
         });
 
         return response;
