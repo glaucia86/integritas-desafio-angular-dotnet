@@ -21,4 +21,18 @@ app.service("integritasService", function($http) {
     this.GetById = function(id) {
         return $http.get("/api/v1/public/product" + id);
     }
+
+    /*
+     * Retornando a atualização do Produto
+     */
+    this.UpdateProduct = function(product) {
+        var response = $http({
+            method: "put",
+            url: "/api/v1/public/updateProduct",
+            data: JSON.stringify(product),
+            dataType: "json"
+        });
+
+        return response;
+    }
 });
