@@ -69,7 +69,7 @@ namespace Integritas.Controllers
 
         /* Método responsável por deletar o Produto pelo id */
         [HttpDelete]
-        [Route("deleteProduct")]
+        [Route("deleteProduct/{id:int}")]
         public HttpResponseMessage DeleteProduct(int id)
         {
             /* Caso não encontre o Produto, retornar um erro 400 */
