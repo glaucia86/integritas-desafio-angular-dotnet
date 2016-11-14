@@ -56,7 +56,7 @@ app.service("integritasService", function($http) {
     this.DeleteProduct = function(id) {
         var response = $http({
             method: "delete",
-            url: "/api/v1/public/deleteProduct" + JSON.stringify(id)
+            url: "/api/v1/public/deleteProduct/" + JSON.stringify(id)
         });
 
         return response;

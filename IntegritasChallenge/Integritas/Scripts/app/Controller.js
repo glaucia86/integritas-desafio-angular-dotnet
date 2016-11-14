@@ -28,4 +28,22 @@ app.controller("integritasCtrl", function($scope, integritasService) {
             toastr["error"]("Erro ao retornar todos os Produtos.", "Integritas System");
         });
     }
+
+    /* Função responsável por realizar a exclusão pela ação do botão Excluir */
+    $scope.deleteProduct = function (product) {
+
+        var productData = integritasService.DeleteProduct(product.Id);
+
+        productData.then(function(data) {
+            if (data.status == 200) {
+                toastr["success"]("Produto Excluído com Sucesso!", "Integritas System");
+            }
+
+            /* Depois que realizar a exclusão, retornar os produtos gravados na base de dados */
+            getAllProducts();
+
+        }, function() {
+            toastr["error"]("Erro ao Excluir o Produto.", "Integritas System");
+        });
+    }
 });
