@@ -46,7 +46,7 @@ namespace Integritas.Controllers
             if (product == null)
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-            //* Caso não dê erro, criar o Produto na Base de Dados */
+            //* Caso dê erro, atualizar o Produto na Base de Dados */
             _db.Entry(product).State = EntityState.Modified;
             _db.SaveChanges();
 

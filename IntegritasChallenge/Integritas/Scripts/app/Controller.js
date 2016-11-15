@@ -12,20 +12,33 @@ app.controller("integritasCtrl", function ($scope, integritasService) {
 
     getAllProducts();
 
+    /* Função responsável por listar todos os Produtos */
+    function getAllProducts() {
+
+        //debugger;
+
+        var productsData = integritasService.GetAllProducts();
+
+        productsData.then(function (product) {
+            $scope.products = product.data;
+        }, function () {
+            toastr["error"]("Erro ao retornar todos os Produtos.", "Integritas System");
+        });
+    }
+
     /*
      * Função responsável por retornar um determinado Produto por Id pela ação do Botão
      */
-    $scope.getById = function (product) {
+    $scope.getById = function(product) {
 
         var productData = integritasService.GetById(product.Id);
-
         productData.then(function (_product) {
-            $scope.product = _product.data;
-            $scope.ProductIdId = _product.Id;
-            $scope.ProductName = _product.ProductName;
-            $scope.ProductType = _product.ProductType;
-            $scope.Quantity = _product.Quantity;
-            $scope.Price = _product.Price;
+            $scope.celular = _product.data;
+            $scope.ProductId = product.Id;
+            $scope.ProductName = product.ProductName;
+            $scope.ProductType = product.ProductType;
+            $scope.Quantity = product.Quantity;
+            $scope.Price = product.Price;
             $scope.Action = "Atualizar";
             $scope.divProduct = true;
         }, function () {
@@ -94,6 +107,7 @@ app.controller("integritasCtrl", function ($scope, integritasService) {
      * Função responsável por limpar os campos da table.
      */
     function limparCampos() {
+        $scope.ProductId = "";
         $scope.ProductName = "";
         $scope.ProductType = "";
         $scope.Quantity = "";
@@ -104,18 +118,6 @@ app.controller("integritasCtrl", function ($scope, integritasService) {
      * Função responsável por retornar os dados do Banco para o lado dos server-side 
      * pelo Angular.Js
      */
-    function getAllProducts() {
-
-        //debugger;
-
-        var productsData = integritasService.GetAllProducts();
-
-        productsData.then(function (product) {
-            $scope.products = product.data;
-        }, function () {
-            toastr["error"]("Erro ao retornar todos os Produtos.", "Integritas System");
-        });
-    }
 
     /* Função responsável por realizar a exclusão pela ação do botão Excluir */
     $scope.deleteProduct = function (product) {
