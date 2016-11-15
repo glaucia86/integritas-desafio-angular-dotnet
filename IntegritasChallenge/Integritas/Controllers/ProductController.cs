@@ -20,6 +20,7 @@ namespace Integritas.Controllers
             return _db.Products;
         }
 
+
         /* Método responsável por Buscar Produto por id */
         [HttpGet]
         [Route("product/{id:int}")]
@@ -35,6 +36,7 @@ namespace Integritas.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, product);
         }
 
+
         /* Método responsável por Atualizar o Produto */
         [HttpPut]
         [Route("updateProduct")]
@@ -45,11 +47,12 @@ namespace Integritas.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
             //* Caso não dê erro, criar o Produto na Base de Dados */
-            _db.Products.Add(product);
+            _db.Entry(product).State = EntityState.Modified;
             _db.SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
 
         /* Método responsável por Criar um novo produto */
         [HttpPost]
@@ -61,11 +64,12 @@ namespace Integritas.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
             //* Caso encontre, retornar o produto */
-            _db.Entry(product).State = EntityState.Modified;
+            _db.Products.Add(product);
             _db.SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
 
         /* Método responsável por deletar o Produto pelo id */
         [HttpDelete]
@@ -78,11 +82,13 @@ namespace Integritas.Controllers
 
             //* Caso encontre, remover o produto */
             var product = _db.Products.Find(id);
+
             _db.Products.Remove(product);
             _db.SaveChanges();
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
 
         /* Aqui estarei desconectando a conexão com a base de dados */
         protected override void Dispose(bool disposing)
