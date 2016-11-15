@@ -19,7 +19,7 @@ app.service("integritasService", function($http) {
      * Retornando a Api GetById
      */
     this.GetById = function(id) {
-        return $http.get("/api/v1/public/product" + id);
+        return $http.get("/api/v1/public/product/" + id);
     }
 
     /*
