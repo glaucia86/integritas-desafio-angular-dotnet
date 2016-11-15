@@ -4,78 +4,82 @@
 
 <div ng-controller="integritasCtrl">
     <div class="divProduct">
-        <p>
-            <b><i>Lista de todos os Produtos Cadastrados</i></b>
-        </p>
-        <table class="table table-hover">
-            <tr>
-                <td><b>Id do Produto</b></td>
-                <td><b>Nome</b></td>
-                <td><b>Tipo do Produto</b></td>
-                <td><b>Quantidade</b></td>
-                <td><b>Preço</b></td>
-            </tr>
+        <div class="container">
+            <div class="span10 offset1">
+                <div class="row">
+                    <h3 class="well">Lista de Produtos Cadastrados</h3>
+                    <table class="table table-hover">
+                        <tr>
+                            <td><b>Id do Produto</b></td>
+                            <td><b>Nome</b></td>
+                            <td><b>Tipo do Produto</b></td>
+                            <td><b>Quantidade</b></td>
+                            <td><b>Preço</b></td>
+                        </tr>
 
-            <tr ng-repeat="product in products">
-                <td>{{product.Id}}</td>
-                <td>{{product.ProductName}}</td>
-                <td>{{product.ProductType}}</td>
-                <td>{{product.Quantity}}</td>
-                <td>{{product.Price}}</td>
+                        <tr ng-repeat="product in products">
+                            <td>{{product.Id}}</td>
+                            <td>{{product.ProductName}}</td>
+                            <td>{{product.ProductType}}</td>
+                            <td>{{product.Quantity}}</td>
+                            <td>{{product.Price | currency}}</td>
 
-                <td>
-                    <span ng-click="getById(product)" class="btn btn-primary">Atualizar</span>
-                    <span ng-click="deleteProduct(product)" class="btn btn-danger">Excluir</span>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <span ng-click="createProductByDiv()" class="btn btn-default">Adicionar Produto</span>
+                            <td>
+                                <span ng-click="getById(product)" class="btn btn-primary">Atualizar</span>
+                                <span ng-click="deleteProduct(product)" class="btn btn-danger">Excluir</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <span ng-click="createProductByDiv()" class="btn btn-default">Adicionar Produto</span>
 
-    <div ng-show="divProduct">
-        <p class="divHead"></p>
-        <table class="table">
-            <tr>
-                <td><b><i>{{Action}} Produto</i></b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><b>Id do Produto</b></td>
-                <td>
-                    <input type="text" disabled="disabled" ng-model="ProductId" class="form-control" />
-                </td>
-                <td><b>Nome</b></td>
-                <td>
-                    <input type="text" ng-model="ProductName" class="form-control" />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Tipo do Produto</b></td>
-                <td>
-                    <input type="text" ng-model="ProductType" class="form-control" />
-                </td>
-                <td><b>Quantidade</b></td>
-                <td>
-                    <input type="text" ng-model="Quantity" class="form-control" />
-                </td>
-            </tr>
-            <tr>
-                <td><b>Preço</b></td>
-                <td>
-                    <input type="text" ng-model="Price" class="form-control" />
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="button" class="btn btn-default" value="Salvar Produto" ng-click="createUpdateProduct()" />
-                    <input type="button" class="btn btn-danger" value="Cancelar" ng-click="cancel()" />
-                </td>
-            </tr>
-        </table>
+                <div ng-show="divProduct">
+                    <p class="divHead"></p>
+                    <table class="table">
+                        <tr>
+                            <td><b><i>{{Action}} Produto</i></b></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><b>Id do Produto</b></td>
+                            <td>
+                                <input type="text" disabled="disabled" ng-model="ProductId" class="form-control" />
+                            </td>
+                            <td><b>Nome</b></td>
+                            <td>
+                                <input type="text" ng-model="ProductName" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Tipo do Produto</b></td>
+                            <td>
+                                <input type="text" ng-model="ProductType" class="form-control" />
+                            </td>
+                            <td><b>Quantidade</b></td>
+                            <td>
+                                <input type="text" ng-model="Quantity" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Preço</b></td>
+                            <td>
+                                <input type="text" ng-model="Price" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="button" class="btn btn-default" value="Salvar Produto" ng-click="createUpdateProduct()" />
+                                <input type="button" class="btn btn-danger" value="Cancelar" ng-click="cancel()" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
