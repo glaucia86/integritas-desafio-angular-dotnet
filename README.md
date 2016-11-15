@@ -5,7 +5,9 @@ Desenvolviimento de uma aplicação para Integritas em C# Asp.NET com Entity Fra
 ## Recursos Utilizados no desenvolvimento do projeto:
 
 - Visual Studio 2015;
-- Asp.NET MVC 5 WebApi;
+- MVC 5 
+- WebApi 2;
+- Conceito SPA (Single Page Application);
 - Angular.Js ~ 1.4.6
 - Entity Framework 6;
 - SQL Server 2012;
