@@ -13,4 +13,6 @@ Desenvolviimento de uma aplicação para Integritas em C# Asp.NET com Entity Fra
 - Toastr ~ 2.1.0;
 - PostMan (testar as rotas da Api);
 
+p.s.: Não esquecer de alterar a connectionstring no arquivo 'WebConfig'. Dúvidas estou à disposição.
+
 
